@@ -1,0 +1,6 @@
+---
+  - name: Copy installation template
+    template: src=templates/ldap.inf.j2 dest=/root/ldap.inf
+
+  - name: Install Directory Server and Admin server
+    shell: /usr/sbin/setup-ds-admin.pl -s -f /root/ldap.inf
