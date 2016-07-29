@@ -7,7 +7,7 @@
     set_fact: pwd_hash='{{ pwd_hash_raw.stdout }}'
 
   - name: Copy installation template
-    template: src=/etc/ansible/templates/rm.ldif.j2 dest=/root/repluser.ldif
+    template: src=templates/rm.ldif.j2 dest=/root/repluser.ldif
 
   - name: check dse content
     shell: cat /etc/dirsrv/slapd-{{ serverid }}/dse.ldif
