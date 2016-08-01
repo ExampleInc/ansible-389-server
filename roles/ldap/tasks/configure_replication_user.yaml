@@ -15,6 +15,7 @@
 
   - name: Stopping Directory Server
     service: name=dirsrv@{{ serverid }} state=stopped
+    when: "dse_contents.stdout.find('dn: cn=replication manager,cn=config') == -1"
 
   - name: Add replication manager user
     shell: cat /root/repluser.ldif >>/etc/dirsrv/slapd-{{ serverid }}/dse.ldif
@@ -22,4 +23,5 @@
 
   - name: Starting Directory Server
     service: name=dirsrv@{{ serverid }} state=started
+    when: "dse_contents.stdout.find('dn: cn=replication manager,cn=config') == -1"
 

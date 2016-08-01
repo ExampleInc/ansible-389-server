@@ -1,8 +1,6 @@
 ---
   - name: Remove temporary files
-    file: path=/root/ldap.inf state=absent
-
-  - name: Remove temporary files
-    file: path=/root/repluser.ldif state=absent
-
-
+    file: path={{ item }} state=absent
+    with_items:
+     - /root/repluser.ldif
+     - /root/ldap.inf

@@ -15,7 +15,7 @@
 
   - name: Configuring sysctl variables
     sysctl: name=net.ipv4.tcp_keepalive_time  value=300 sysctl_set=yes state=present
-  
+
   - name: Configuring sysctl variables 
     sysctl: name=net.ipv4.ip_local_port_range value='1024 65000' sysctl_set=yes state=present
 
@@ -30,6 +30,6 @@
 
   - name: COnfiguring group ldap
     group: name=ldap gid=389
- 
+
   - name: Configuring user ldap
     user: name=ldap comment="Dirsrv user" uid=389 group=ldap shell=/sbin/nologin

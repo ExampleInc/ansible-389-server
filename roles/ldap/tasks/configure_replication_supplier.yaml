@@ -1,0 +1,12 @@
+---
+   - name: Copy installation templates
+     template: src=templates/{{ item }} dest=/root/{{ item }}
+     with_items:
+      - suplier_changelog.ldif.j2
+      - suplier_replica.ldif.j2
+
+#   - name: adding changelog entry
+#     shell: ldapmodify -D {{ ldap_rootdn }} -w {{ ldap_password }} -h localhost -v < /root/suplier_changelog.ldif
+   
+#   - name: Configuring suplier replica
+#     shell: ldapmodify -D {{ ldap_rootdn }} -w {{ ldap_password }} -h localhost -v < /root/suplier_replica.ldif
